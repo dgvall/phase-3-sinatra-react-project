@@ -2,6 +2,10 @@ class ApplicationController < Sinatra::Base
   set :default_content_type, 'application/json'
   
   # Add your routes here
+  get '/' do
+    list = List.find(17).tasks
+    list.to_json
+  end
   get '/lists' do
     lists = List.all
     lists.to_json
