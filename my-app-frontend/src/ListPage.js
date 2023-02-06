@@ -1,7 +1,7 @@
 import React from 'react'
 import {useParams} from "react-router-dom"
 
-function List() {
+function ListPage() {
   const {id} = useParams()
   return (
     <div>
@@ -10,4 +10,4 @@ function List() {
   )
 }
 
-export default List;
+export default ListPage;
