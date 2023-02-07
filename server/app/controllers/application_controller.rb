@@ -13,10 +13,11 @@ class ApplicationController < Sinatra::Base
     lists.to_json(include: { sublists: { include: :tasks} })
   end
 
-  # get '/lists/:id' do
-  #   list = List.find(params[:id]).sublists
-  #   list.to_json
-  # end
+  # return full nested data of a specific list
+  get '/lists/:id' do
+    list = List.find(params[:id])
+    list.to_json(include: { sublists: { include: :tasks} })
+  end
   # get '/lists/:id/sublists' do
   #   sublists = List.find(params[:id]).sublists
   #   sublists.to_json
