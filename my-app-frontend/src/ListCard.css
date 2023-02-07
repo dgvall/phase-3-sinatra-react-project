@@ -6,4 +6,6 @@
   width: 200px;
   height: 200px;
   font-size: 1rem;
+  margin: 15px;
+  cursor: pointer;
 }

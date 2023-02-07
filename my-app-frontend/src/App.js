@@ -18,7 +18,9 @@ function App() {
     <div>
       <Switch>
         <Route exact path = '/lists'>
-          <ListsPage />
+          <ListsPage
+            lists = {lists}
+          />
         </Route>
         <Route exact path = '/lists/:id'>
           <ListPage />
