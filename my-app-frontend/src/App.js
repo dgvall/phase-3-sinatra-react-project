@@ -6,6 +6,14 @@ import ListPage from "./ListPage"
 import './App.css';
 
 function App() {
+  const [lists, setLists] = useState([])
+
+  useEffect(() => {
+    fetch("http://localhost:9292/lists")
+      .then(res => res.json())
+      .then(data => setLists(data))
+  }, [])
+
   return (
     <div>
       <Switch>
