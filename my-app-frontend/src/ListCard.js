@@ -6,7 +6,7 @@ function ListCard({name, id}) {
   const history = useHistory()
   return (
     <div
-    onClick = {() => history.push(`lists/${id}`)}
+    onClick = {() => history.push(`/lists/${id}`)}
     id = "list-card"
     >
       {name}

@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import {useParams} from "react-router-dom"
+import GeneralSublist from './GeneralSublist.js'
 
 import "./ListPage.css"
 
@@ -21,12 +22,14 @@ function ListPage() {
         <p>{"<-"}</p>
         <p>{list.name}</p>
       </div>
-      <div>
+      <div id = "task-creation">
         <p>Add Task</p>
         <input
           placeholder = "Task here"
-        ></input>
+        >
+        </input>
       </div>
+      <GeneralSublist />
       
     </div>
   )

@@ -1,0 +1,12 @@
+#checkbox {
+  display: flex;
+  width: 50px;
+}
+
+#task-container {
+  display: flex;
+  flex-direction: row;
+  border: solid red 2px;
+  width: 10em;
+  margin: .3em;
+}
