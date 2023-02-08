@@ -1,5 +1,9 @@
 #list-header {
   display:flex;
+  border: solid 2px red;
+  position: absolute;
+  padding-left: 1em;
+  padding-right: 1em;
 }
 
 #task-creation {
@@ -12,4 +16,5 @@
 #days-container {
   display: flex;
   flex-direction: row;
+  justify-content: center;
 }

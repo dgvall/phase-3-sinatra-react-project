@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react'
-import {useParams} from "react-router-dom"
+import {useHistory,useParams} from "react-router-dom"
 import GeneralSublist from './GeneralSublist.js'
 import DaySublist from './DaySublist.js'
 
@@ -8,6 +8,8 @@ import "./ListPage.css"
 function ListPage() {
   const [list, setList] = useState([])
   const {id} = useParams()
+
+  const history = useHistory()
 
   useEffect(() => {
     fetch(`http://localhost:9292/lists/${id}`)
@@ -20,7 +22,9 @@ function ListPage() {
   return (
     <div>
       <div id = "list-header">
-        <p>{"<-"}</p>
+        <p
+        onClick = {(e) => history.push("/lists")}
+        >{"<-"}</p>
         <p>{list.name}</p>
       </div>
       <div id = "task-creation">
