@@ -1,0 +1,21 @@
+#sublist-task-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+  text-align: center;
+}
+
+#sublist-container {
+  display: flex;
+  flex-direction: column;
+  border: solid 2px red;
+  align-items: center;
+  width: 500px;
+}
+
+.sublist-header {
+  display: flex;
+  font-size: 3rem;
+  border: solid 2px red;
+}

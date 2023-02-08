@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import {useParams} from "react-router-dom"
 import GeneralSublist from './GeneralSublist.js'
+import DaySublist from './DaySublist.js'
 
 import "./ListPage.css"
 
@@ -30,7 +31,29 @@ function ListPage() {
         </input>
       </div>
       <GeneralSublist />
-      
+      <div id = "days-container">
+      <DaySublist
+        day = "Sunday"
+        />
+        <DaySublist
+        day = "Monday"
+        />
+        <DaySublist
+        day = "Tuesday"
+        />
+        <DaySublist
+        day = "Wednesday"
+        />
+        <DaySublist
+        day = "Thursday"
+        />
+        <DaySublist
+        day = "Friday"
+        />
+        <DaySublist
+        day = "Saturday"
+        />
+      </div>
     </div>
   )
 }
