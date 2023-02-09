@@ -9,11 +9,20 @@ function DaySublist({day, tasks}) {
     <div id = "sublist-container">
       <h1 className = "sublist-header">{day}</h1>
       <div id = "sublist-task-container">
-        <Task />
-        <Task />
-        <Task />
-        <Task />
-        <Task />
+      {
+        tasks.map((t) => {
+          return (
+            <Task
+            key = {t.id}
+            text = {t.text}
+            details = {t.details}
+            priority = {t.priority}
+            time = {t.time}
+            meridiem = {t.meridiem}
+          />
+          )
+        })
+      }
       </div>
     </div>
   )

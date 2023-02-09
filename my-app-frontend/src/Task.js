@@ -2,14 +2,14 @@ import React from 'react'
 
 import "./Task.css"
 
-function Task({day, list_id, tasks}) {
+function Task({text, details, priority, time, meridiem}) {
   return (
     <div id = "task-container">
       <input
       id = "checkbox"
       type = "checkbox"
       />
-      <p>put away the garbage on friday night </p>
+      <p>{text}</p>
     </div>
   )
 

@@ -17,6 +17,9 @@ function ListPage({list}) {
     //   GET REQUEST
     // }
 
+
+    const general = list.sublists.find((s) => s.name === "General")
+    console.log(general)
   return (
     <div>
       <div id = "list-header">
@@ -33,7 +36,11 @@ function ListPage({list}) {
         >
         </input>
       </div>
-      <GeneralSublist />
+
+      <GeneralSublist
+        tasks = {general.tasks}
+      />
+     
       <div id = "days-container">
 
         {
