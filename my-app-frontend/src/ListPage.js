@@ -17,7 +17,27 @@ function ListPage({list}) {
     // if (!list[0]) {
     //   GET REQUEST
     // }
+  function handleQuickSubmit(e) {
+    const formData = {
+      text: quickTask,
+      details: "",
+      priority: 0,
+      sublist_id: general.id
+    }
 
+    e.preventDefault()
+    console.log("submitted!")
+    setQuickTask("")
+    fetch("http://localhost:9292/lists/sublists/tasks", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formData)
+    })
+      .then(res => res.json())
+      .then(data => console.log(data))
+  }
 
     const general = list.sublists.find((s) => s.name === "General")
     console.log(general)
@@ -32,11 +52,7 @@ function ListPage({list}) {
       </div>
       <form
       id = "task-creation"
-      onSubmit = {(e) => {
-        e.preventDefault()
-        console.log("submitted!")
-        setQuickTask("")
-      }}
+      onSubmit = {handleQuickSubmit}
       >
         <p>Add Task</p>
         <input
