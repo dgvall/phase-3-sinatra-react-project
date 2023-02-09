@@ -2,7 +2,7 @@ import React from 'react'
 
 import "./Task.css"
 
-function Task({text}) {
+function Task({day, list_id, tasks}) {
   return (
     <div id = "task-container">
       <input

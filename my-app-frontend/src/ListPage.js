@@ -39,13 +39,11 @@ function ListPage({list}) {
         {
           days.map((day) => {
             const sublist = list.sublists.find((s) => s.name === day)
-            console.log(sublist)
             return (
               <DaySublist
-               key = {day}
-              //  id = {sublist.id}
-              //  day = {sublist.name}
-              //  tasks = {sublist.tasks}
+               key = {sublist.name}
+               day = {sublist.name}
+               tasks = {sublist.tasks}
 
               />
             )
