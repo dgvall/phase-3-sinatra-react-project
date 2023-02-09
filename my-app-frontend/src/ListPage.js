@@ -34,6 +34,7 @@ function ListPage() {
     <div>
       <div id = "list-header">
         <p
+        id = "back-arrow"
         onClick = {(e) => history.push("/lists")}
         >{"<-"}</p>
         <p>{list.name}</p>

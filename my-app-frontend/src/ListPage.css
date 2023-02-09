@@ -18,3 +18,7 @@
   flex-direction: row;
   justify-content: center;
 }
+
+#back-arrow {
+  cursor: pointer;
+}
