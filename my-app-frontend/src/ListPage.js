@@ -7,6 +7,7 @@ import "./ListPage.css"
 
 function ListPage({list}) {
   const history = useHistory()
+  const [quickTask, setQuickTask] = useState("")
 
   const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
 
@@ -29,13 +30,22 @@ function ListPage({list}) {
         >{"<-"}</p>
         <p>{list.name}</p>
       </div>
-      <div id = "task-creation">
+      <form
+      id = "task-creation"
+      onSubmit = {(e) => {
+        e.preventDefault()
+        console.log("submitted!")
+        setQuickTask("")
+      }}
+      >
         <p>Add Task</p>
         <input
           placeholder = "Task here"
+          onChange = {(e) => setQuickTask(e.target.value)}
+          value = {quickTask}
         >
         </input>
-      </div>
+      </form>
 
       <GeneralSublist
         tasks = {general.tasks}
