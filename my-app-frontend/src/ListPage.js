@@ -66,30 +66,6 @@ function ListPage({list}) {
             )
           })
         }
-
-
-        {/* <DaySublist
-          day = "Sunday"
-        />
-        <DaySublist
-          day = "Monday"
-        />
-        <DaySublist
-          day = "Tuesday"
-        />
-        <DaySublist
-          day = "Wednesday"
-        />
-        <DaySublist
-          day = "Thursday"
-        />
-        <DaySublist
-          day = "Friday"
-        />
-        <DaySublist
-          day = "Saturday"
-        /> */}
-
       </div>
     </div>
   )

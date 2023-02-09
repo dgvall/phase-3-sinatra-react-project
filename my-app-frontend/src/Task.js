@@ -2,7 +2,7 @@ import React from 'react'
 
 import "./Task.css"
 
-function Task({text, details, priority, time, meridiem}) {
+function Task({text, details, priority}) {
   return (
     <div id = "task-container">
       <input

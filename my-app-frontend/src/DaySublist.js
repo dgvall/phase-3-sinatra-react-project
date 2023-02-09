@@ -17,8 +17,7 @@ function DaySublist({day, tasks}) {
             text = {t.text}
             details = {t.details}
             priority = {t.priority}
-            time = {t.time}
-            meridiem = {t.meridiem}
+            // sublist_id = {t.sublist_id}
           />
           )
         })

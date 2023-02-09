@@ -19,8 +19,6 @@ function GeneralSublist(tasks) {
                 text = {t.text}
                 details = {t.details}
                 priority = {t.priority}
-                time = {t.time}
-                meridiem = {t.meridiem}
               />
             )
            })
