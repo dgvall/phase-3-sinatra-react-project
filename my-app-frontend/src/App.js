@@ -27,6 +27,12 @@ function App() {
   }
 
 
+  // use state to update app
+  // function onCreateTasks(taskObj) {
+  //   setLists
+  // }
+
+
   return (
     <div>
       <Switch>
