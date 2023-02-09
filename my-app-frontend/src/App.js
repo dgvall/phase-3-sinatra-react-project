@@ -8,6 +8,10 @@ import './App.css';
 function App() {
   const [lists, setLists] = useState([])
 
+  function onUpdateLists(listObj) {
+    setLists([...lists, listObj])
+  }
+
   useEffect(() => {
     fetch("http://localhost:9292/lists")
       .then(res => res.json())
@@ -20,6 +24,7 @@ function App() {
         <Route exact path = '/lists'>
           <ListsPage
             lists = {lists}
+            handleUpdateLists = {onUpdateLists}
           />
         </Route>
         <Route exact path = '/lists/:id'>

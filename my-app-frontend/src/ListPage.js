@@ -17,7 +17,18 @@ function ListPage() {
       .then(data => setList(data))
   }, [])
 
-  console.log(list)
+  console.log(list.sublists)
+
+  // .map eventually
+
+  // function createDay(day, sublists) {
+  //   const sublist = sublists.
+  //   return (
+  //     <DaySublist
+  //       day = {day}
+  //     />
+  //   )
+  // }
 
   return (
     <div>
@@ -36,26 +47,26 @@ function ListPage() {
       </div>
       <GeneralSublist />
       <div id = "days-container">
-      <DaySublist
-        day = "Sunday"
+        <DaySublist
+          day = "Sunday"
         />
         <DaySublist
-        day = "Monday"
+          day = "Monday"
         />
         <DaySublist
-        day = "Tuesday"
+          day = "Tuesday"
         />
         <DaySublist
-        day = "Wednesday"
+          day = "Wednesday"
         />
         <DaySublist
-        day = "Thursday"
+          day = "Thursday"
         />
         <DaySublist
-        day = "Friday"
+          day = "Friday"
         />
         <DaySublist
-        day = "Saturday"
+          day = "Saturday"
         />
       </div>
     </div>

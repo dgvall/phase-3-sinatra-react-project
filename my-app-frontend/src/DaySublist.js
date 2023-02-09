@@ -6,7 +6,7 @@ import "./DaySublist.css"
 function DaySublist({day}) {
   return (
     <div id = "sublist-container">
-      <h1 class = "sublist-header">{day}</h1>
+      <h1 className = "sublist-header">{day}</h1>
       <div id = "sublist-task-container">
         <Task />
         <Task />

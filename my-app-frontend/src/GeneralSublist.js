@@ -6,7 +6,7 @@ import "./GeneralSublist.css"
 function GeneralSublist() {
   return (
     <div id = "general-container">
-      <h1 class = "sublist-header">General</h1>
+      <h1 className = "sublist-header">General</h1>
       <div id = "general-task-container">
         <Task />
         <Task />
