@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from "react"
-import {Switch, Route} from "react-router-dom"
+import {Switch, Route, useParams} from "react-router-dom"
 import ListsPage from "./ListsPage"
 import ListPage from "./ListPage"
 
@@ -7,16 +7,25 @@ import './App.css';
 
 function App() {
   const [lists, setLists] = useState([])
-
-  function onUpdateLists(listObj) {
-    setLists([...lists, listObj])
-  }
+  const [list, setList] = useState([])
+  const [paramId, setParamId] = useState()
 
   useEffect(() => {
     fetch("http://localhost:9292/lists")
       .then(res => res.json())
       .then(data => setLists(data))
   }, [])
+
+  function onUpdateLists(listObj) {
+    setLists([...lists, listObj])
+  }
+
+  function onUpdateListId(id) {
+    // console.log(id)
+    const findList = lists.find((l) => l.id === id)
+    setList(findList)
+  }
+
 
   return (
     <div>
@@ -25,10 +34,14 @@ function App() {
           <ListsPage
             lists = {lists}
             handleUpdateLists = {onUpdateLists}
+            handleUpdateListId = {onUpdateListId}
           />
         </Route>
         <Route exact path = '/lists/:id'>
-          <ListPage />
+          <ListPage
+            list = {list}
+            handleUpdateListId = {onUpdateListId}
+          />
         </Route>
       </Switch>
     </div>

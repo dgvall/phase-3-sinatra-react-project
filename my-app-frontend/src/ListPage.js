@@ -5,30 +5,17 @@ import DaySublist from './DaySublist.js'
 
 import "./ListPage.css"
 
-function ListPage() {
-  const [list, setList] = useState([])
-  const {id} = useParams()
-
+function ListPage({list}) {
   const history = useHistory()
 
-  useEffect(() => {
-    fetch(`http://localhost:9292/lists/${id}`)
-      .then(res => res.json())
-      .then(data => setList(data))
-  }, [])
+  const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
 
-  console.log(list.sublists)
+  // const {id} = useParams()
+  // console.log(`params id: ${id}`)
 
-  // .map eventually
-
-  // function createDay(day, sublists) {
-  //   const sublist = sublists.
-  //   return (
-  //     <DaySublist
-  //       day = {day}
-  //     />
-  //   )
-  // }
+    // if (!list[0]) {
+    //   GET REQUEST
+    // }
 
   return (
     <div>
@@ -48,7 +35,25 @@ function ListPage() {
       </div>
       <GeneralSublist />
       <div id = "days-container">
-        <DaySublist
+
+        {
+          days.map((day) => {
+            const sublist = list.sublists.find((s) => s.name === day)
+            console.log(sublist)
+            return (
+              <DaySublist
+               key = {day}
+              //  id = {sublist.id}
+              //  day = {sublist.name}
+              //  tasks = {sublist.tasks}
+
+              />
+            )
+          })
+        }
+
+
+        {/* <DaySublist
           day = "Sunday"
         />
         <DaySublist
@@ -68,7 +73,8 @@ function ListPage() {
         />
         <DaySublist
           day = "Saturday"
-        />
+        /> */}
+
       </div>
     </div>
   )
