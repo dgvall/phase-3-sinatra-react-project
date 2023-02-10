@@ -4,10 +4,8 @@ import UserForm from './UserForm'
 
 import './ListsPage.css'
 
-function ListsPage({lists, handleUpdateLists, handleUpdateListId}) {
+function ListsPage({lists, handleUpdateLists}) {
   const [hidden, setHidden] = useState(true)
-
-  // console.log(lists)
 
   function hideModal() {
     setHidden(true)
@@ -43,7 +41,6 @@ function ListsPage({lists, handleUpdateLists, handleUpdateListId}) {
                 key = {list.id}
                 id = {list.id}
                 name = {list.name}
-                handleUpdateListId = {handleUpdateListId}
               />
             })
           }

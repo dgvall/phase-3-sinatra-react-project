@@ -5,43 +5,47 @@ import DaySublist from './DaySublist.js'
 
 import "./ListPage.css"
 
-function ListPage({list}) {
+function ListPage({lists}) {
   const history = useHistory()
   const [quickTask, setQuickTask] = useState("")
+  let {id} = useParams()
+
+    const list = lists.find((l) => l.id === parseInt(id))
+
 
   const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
-
-  // const {id} = useParams()
-  // console.log(`params id: ${id}`)
-
-    // if (!list[0]) {
-    //   GET REQUEST
-    // }
-  function handleQuickSubmit(e) {
-    const formData = {
-      text: quickTask,
-      details: "",
-      priority: 0,
-      sublist_id: general.id
+    
+    function handleQuickSubmit(e) {
+      if(lists[0]) {
+      const general = list.sublists.find((s) => s.name === "General")
+      
+      const formData = {
+        text: quickTask,
+        details: "",
+        priority: 0,
+        sublist_id: general.id
+      }
+  
+      e.preventDefault()
+      console.log("submitted!")
+      setQuickTask("")
+      fetch("http://localhost:9292/lists/sublists/tasks", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData)
+      })
+        .then(res => res.json())
+        .then(data => console.log(data))
+      }
     }
-
-    e.preventDefault()
-    console.log("submitted!")
-    setQuickTask("")
-    fetch("http://localhost:9292/lists/sublists/tasks", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(formData)
-    })
-      .then(res => res.json())
-      .then(data => console.log(data))
-  }
-
-    const general = list.sublists.find((s) => s.name === "General")
-    console.log(general)
+  
   return (
+    <div>
+    {
+      lists[0]
+      ? 
     <div>
       <div id = "list-header">
         <p
@@ -62,10 +66,18 @@ function ListPage({list}) {
         >
         </input>
       </form>
-
-      <GeneralSublist
-        tasks = {general.tasks}
-      />
+      {
+        list.sublists.map((s) => {
+          if(s.name === "General") {
+            return (
+              <GeneralSublist
+            key = {s.id}
+            tasks = {s.tasks}
+          />
+            )
+          }
+        })
+      }
      
       <div id = "days-container">
 
@@ -83,6 +95,9 @@ function ListPage({list}) {
           })
         }
       </div>
+    </div>
+    : <div>Loading</div>
+    }
     </div>
   )
 }

@@ -4,8 +4,6 @@ import Task from "./Task"
 import "./GeneralSublist.css"
 
 function GeneralSublist({tasks}) {
-  console.log("general")
-  console.log(tasks)
   return (
     <div id = "general-container">
       <h1 className = "sublist-header">General</h1>

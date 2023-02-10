@@ -4,7 +4,6 @@ import Task from "./Task"
 import "./DaySublist.css"
 
 function DaySublist({day, tasks}) {
-  console.log(tasks)
   return (
     <div id = "sublist-container">
       <h1 className = "sublist-header">{day}</h1>
