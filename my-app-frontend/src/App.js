@@ -18,6 +18,19 @@ function App() {
     setLists([...lists, listObj])
   }
 
+  function onUpdateList(updatedListObj) {
+    const updatedLists = (lists.map((l) => {
+      if(l.id === updatedListObj.id) {
+        return updatedListObj
+      } else return l
+    }))
+
+    setLists(updatedLists)
+  }
+
+  console.log(lists)
+    
+
   return (
     <div>
       <Switch>
@@ -25,12 +38,12 @@ function App() {
           <ListsPage
             lists = {lists}
             handleUpdateLists = {onUpdateLists}
-            
           />
         </Route>
         <Route exact path = '/lists/:id'>
           <ListPage
             lists = {lists}
+            handleUpdateList = {onUpdateList}
           />
         </Route>
       </Switch>

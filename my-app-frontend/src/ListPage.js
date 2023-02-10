@@ -5,13 +5,12 @@ import DaySublist from './DaySublist.js'
 
 import "./ListPage.css"
 
-function ListPage({lists}) {
+function ListPage({lists, handleUpdateList}) {
   const history = useHistory()
   const [quickTask, setQuickTask] = useState("")
   let {id} = useParams()
 
-    const list = lists.find((l) => l.id === parseInt(id))
-
+  const list = lists.find((l) => l.id === parseInt(id))
 
   const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
     
@@ -37,10 +36,12 @@ function ListPage({lists}) {
         body: JSON.stringify(formData)
       })
         .then(res => res.json())
-        .then(data => console.log(data))
+        .then(data => {
+          general.tasks = [...general.tasks, data]
+          handleUpdateList(list)
+        })
       }
     }
-  
   return (
     <div>
     {
