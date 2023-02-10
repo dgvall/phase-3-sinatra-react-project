@@ -25,9 +25,10 @@ class ApplicationController < Sinatra::Base
     list.to_json
   end
 
-  # post '/lists/sublists/tasks' do
-  #   task = Task.create()
-  # end
+  post '/lists/sublists/tasks' do
+    task = Task.create(text: params[:text], details: params[:details], priority: params[:priority], sublist_id: params[:sublist_id])
+    task.to_json
+  end
 
   # get '/lists/:id/sublists' do
   #   sublists = List.find(params[:id]).sublists

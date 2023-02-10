@@ -22,6 +22,7 @@ function App() {
 
   function onUpdateListId(id) {
     // console.log(id)
+    
     const findList = lists.find((l) => l.id === id)
     setList(findList)
   }
