@@ -32,7 +32,7 @@ class ApplicationController < Sinatra::Base
   end
 
   # delete specific task
-  delete 'lists/sublists/tasks/:id' do
+  delete '/lists/sublists/tasks/:id' do
     task = Task.find(params[:id])
     task.destroy
     task.to_json
