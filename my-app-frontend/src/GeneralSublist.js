@@ -14,6 +14,7 @@ function GeneralSublist({tasks}) {
           return (
             <Task
             key = {t.id}
+            id = {t.id}
             text = {t.text}
             details = {t.details}
             priority = {t.priority}

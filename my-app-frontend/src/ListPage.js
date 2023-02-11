@@ -90,7 +90,6 @@ function ListPage({lists, handleUpdateList}) {
                key = {sublist.name}
                day = {sublist.name}
                tasks = {sublist.tasks}
-
               />
             )
           })
