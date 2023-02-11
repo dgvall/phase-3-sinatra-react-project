@@ -24,11 +24,8 @@ function App() {
         return updatedListObj
       } else return l
     }))
-
     setLists(updatedLists)
   }
-
-  console.log(lists)
     
 
   return (

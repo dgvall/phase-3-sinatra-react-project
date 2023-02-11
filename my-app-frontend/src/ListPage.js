@@ -11,6 +11,7 @@ function ListPage({lists, handleUpdateList}) {
   let {id} = useParams()
 
   const list = lists.find((l) => l.id === parseInt(id))
+  console.log(list)
 
   const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
     
@@ -40,6 +41,16 @@ function ListPage({lists, handleUpdateList}) {
           general.tasks = [...general.tasks, data]
           handleUpdateList(list)
         })
+      }
+    }
+
+    function handleDeleteTask(taskId, sublistId) {
+      if (lists[0]) {
+        // onDeleteTask
+        console.log(taskId)
+        let sublist = list.sublists.find((s) => s.id === sublistId)
+        sublist.tasks = sublist.tasks.filter((t) => t.id !== taskId)
+        handleUpdateList(list)
       }
     }
   return (
@@ -74,6 +85,7 @@ function ListPage({lists, handleUpdateList}) {
               <GeneralSublist
             key = {s.id}
             tasks = {s.tasks}
+            onDeleteTask = {handleDeleteTask}
           />
             )
           }
@@ -90,6 +102,7 @@ function ListPage({lists, handleUpdateList}) {
                key = {sublist.name}
                day = {sublist.name}
                tasks = {sublist.tasks}
+               onDeleteTask = {handleDeleteTask}
               />
             )
           })

@@ -2,14 +2,14 @@ import React from 'react'
 
 import "./Task.css"
 
-function Task({text, details, priority, id}) {
+function Task({text, details, priority, id, onDeleteTask}) {
 
   function handleDeleteTask() {
     fetch(`http://localhost:9292/lists/sublists/tasks/${id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())
-      .then((data) => console.log(data))
+      .then((data) => onDeleteTask(data.id, data.sublist_id))
   }
   return (
     <div id = "task-container">
