@@ -1,0 +1,44 @@
+#task-form-modal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.5);
+}
+
+#task-form-content {
+  width: 30rem;
+  background-color: #fff;
+  margin-bottom: 20em;
+  z-index: 2;
+}
+#task-form-header {
+  display: flex;
+  justify-content: flex-end;
+  padding: 10px;
+}
+#task-form-body {
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+}
+#task-form-footer {
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+}
+
+#task-modal {
+  height: 1.3em;
+  width: 1.3em;
+}
+
+.modal-title {
+  margin-right: 6em;
+}

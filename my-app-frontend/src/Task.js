@@ -45,7 +45,10 @@ function Task({text, priority, id, onDeleteTask}) {
           type = "checkbox"
           onChange = {handleDeleteTask}
         />
-        <p id = "task-text">{text}</p>
+        {/* <p type = "text" id = "task-text" value = {text}
+        >{text}</p> */}
+        <span role = "textbox" id = "task-text" contentEditable>{text}</span>
+        {/* maybe add class = input */}
       </div>
 
       { hover

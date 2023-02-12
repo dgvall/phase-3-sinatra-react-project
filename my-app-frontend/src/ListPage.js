@@ -2,33 +2,34 @@ import React, {useState, useEffect} from 'react'
 import {useHistory,useParams} from "react-router-dom"
 import GeneralSublist from './GeneralSublist.js'
 import DaySublist from './DaySublist.js'
+import TaskForm from './TaskForm.js'
 
 import "./ListPage.css"
 
 function ListPage({lists, handleUpdateList}) {
   const history = useHistory()
   const [quickTask, setQuickTask] = useState("")
+  const [day, setDay] = useState("General")
+  const [hidden, setHidden] = useState(true)
+  const [priority, setPriority] = useState(false)
   const {id} = useParams()
 
   const list = lists.find((l) => l.id === parseInt(id))
-  console.log(list)
 
   const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
     
     function handleQuickSubmit(e) {
       if(lists[0]) {
-      const general = list.sublists.find((s) => s.name === "General")
+      const sublist = list.sublists.find((s) => s.name === day)
       
       const formData = {
         text: quickTask,
-        details: "",
-        priority: 0,
-        sublist_id: general.id
+        priority: priority,
+        sublist_id: sublist.id
       }
   
       e.preventDefault()
       console.log("submitted!")
-      setQuickTask("")
       fetch("http://localhost:9292/lists/sublists/tasks", {
         method: "POST",
         headers: {
@@ -38,8 +39,12 @@ function ListPage({lists, handleUpdateList}) {
       })
         .then(res => res.json())
         .then(data => {
-          general.tasks = [...general.tasks, data]
+          console.log(data)
+          sublist.tasks = [...sublist.tasks, data]
           handleUpdateList(list)
+          setQuickTask("")
+          setDay("General")
+          setPriority(false)
         })
       }
     }
@@ -59,6 +64,16 @@ function ListPage({lists, handleUpdateList}) {
       lists[0]
       ? 
     <div>
+
+    {
+    hidden
+      ? null
+      :
+      <TaskForm
+        setHidden = {setHidden}
+      />
+    }   
+
       <div id = "list-header">
         <div id = "header-name">
           <p
@@ -66,7 +81,10 @@ function ListPage({lists, handleUpdateList}) {
           >{"<-"}</p>
           <p id = "list-name" >{list.name}</p>
         </div>
-        <div id = "header-form" >+</div>
+        <div
+          id = "header-form"
+          onClick = {() => setHidden(false)}
+        >+</div>
       </div>
       <form
       id = "task-creation"
@@ -79,6 +97,45 @@ function ListPage({lists, handleUpdateList}) {
           value = {quickTask}
         >
         </input>
+        <select
+          onChange = {(e) => setDay(e.target.value)}
+        >
+          <option>
+            General
+          </option>
+          <option>
+            Sunday
+          </option>
+          <option>
+            Monday
+          </option>
+          <option>
+            Tuesday
+          </option>
+          <option>
+            Wednesday
+          </option>
+          <option>
+            Thursday
+          </option>
+          <option>
+            Friday
+          </option>
+          <option>
+            Saturday
+          </option>
+        </select>
+        <div>
+        <input
+          type = "checkbox"
+          value = {priority}
+          onChange = {() => setPriority(() => !priority)}
+        >
+        </input>
+        <label>Priority</label>
+
+        </div>
+        <button>Submit</button>
       </form>
       {
         list.sublists.map((s) => {
