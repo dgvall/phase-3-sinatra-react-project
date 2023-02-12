@@ -17,6 +17,15 @@
   margin: .3em;
 }
 
+#priority-task-container {
+  display: flex;
+  justify-content: space-between;
+  border: solid blue 2px;
+  width: 10em;
+  margin: .3em;
+  background-color: rgb(209, 209, 209);
+}
+
 #task-text {
   font-size: 1rem;
   padding-top: 10px;

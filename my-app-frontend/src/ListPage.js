@@ -40,11 +40,11 @@ function ListPage({lists, handleUpdateList}) {
         .then(res => res.json())
         .then(data => {
           console.log(data)
-          sublist.tasks = [...sublist.tasks, data]
-          handleUpdateList(list)
           setQuickTask("")
           setDay("General")
           setPriority(false)
+          sublist.tasks = [...sublist.tasks, data]
+          handleUpdateList(list)
         })
       }
     }
@@ -58,6 +58,7 @@ function ListPage({lists, handleUpdateList}) {
         handleUpdateList(list)
       }
     }
+    console.log(day)
   return (
     <div>
     {
@@ -93,6 +94,7 @@ function ListPage({lists, handleUpdateList}) {
         <div id = "day-container">
         <select
           onChange = {(e) => setDay(e.target.value)}
+          value = {day}
         >
           <option>
             General
@@ -134,8 +136,8 @@ function ListPage({lists, handleUpdateList}) {
         <input
           id = "priority-checkbox"
           type = "checkbox"
-          value = {priority}
           onChange = {() => setPriority(() => !priority)}
+          checked = {priority}
         >
         </input>
         <label id = "priority-label" >Priority</label>

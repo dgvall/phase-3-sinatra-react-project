@@ -5,7 +5,7 @@ import "./Task.css"
 function Task({text, priority, id, onDeleteTask}) {
 
   const [hover, setHover] = useState(false)
-  const [clicked, setClicked] = useState(false)
+  // const [priorityClass, setPriorityClass] = useState(priority)
 
   function handleDeleteTask() {
     fetch(`http://localhost:9292/lists/sublists/tasks/${id}`, {
@@ -15,14 +15,18 @@ function Task({text, priority, id, onDeleteTask}) {
       .then((data) => onDeleteTask(data.id, data.sublist_id))
   }
 
-  function handleClick() {
-    setClicked(true)
-  }
+  // function handleClick() {
+  //   setClicked(true)
+  // }
   return (
     <div
     onMouseEnter = {() => setHover(true)}
     onMouseLeave = {() => setHover(false)}
-    id = "task-container"
+    id = {
+      priority
+      ? "priority-task-container"
+      : "task-container"
+    }
     >
     {/* {
       clicked
@@ -56,14 +60,13 @@ function Task({text, priority, id, onDeleteTask}) {
         <div id = "hover-container">
           <div
             id = "cogwheel"
-            onClick = {handleClick}
+            // onClick = {handleClick}
           >❗</div>
         </div>
         : null
       }
     </div>
   )
-
 }
 
 export default Task;
