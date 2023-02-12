@@ -1,13 +1,38 @@
 #checkbox {
   display: flex;
-  width: 50px;
+  width: .5em;
+}
+
+#show-container {
+  display: flex;
+  flex-direction: row;
+  border: solid red 2px;
 }
 
 #task-container {
   display: flex;
-  flex-direction: row;
-  border: solid red 2px;
+  justify-content: space-between;
+  border: solid blue 2px;
   width: 10em;
   margin: .3em;
+}
+
+#task-text {
   font-size: 1rem;
+}
+#cogwheel {
+  display: flex;
+  margin: none;
+  justify-content: flex-end;
+  border: solid red 2px;
+}
+
+#details {
+  font-size: .5em;
+}
+
+#hover-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
