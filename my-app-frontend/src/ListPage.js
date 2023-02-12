@@ -17,10 +17,15 @@ function ListPage({lists, handleUpdateList}) {
   const list = lists.find((l) => l.id === parseInt(id))
 
   const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+
+    function findSublistByDay(day) {
+      const sublist = list.sublists.find((s) => s.name === day)
+      return sublist
+    }
     
     function handleQuickSubmit(e) {
       if(lists[0]) {
-      const sublist = list.sublists.find((s) => s.name === day)
+      const sublist = findSublistByDay(day)
       
       const formData = {
         text: quickTask,
@@ -50,15 +55,28 @@ function ListPage({lists, handleUpdateList}) {
     }
 
     function handleDeleteTask(taskId, sublistId) {
-      if (lists[0]) {
         // onDeleteTask
         console.log(taskId)
         let sublist = list.sublists.find((s) => s.id === sublistId)
         sublist.tasks = sublist.tasks.filter((t) => t.id !== taskId)
         handleUpdateList(list)
-      }
     }
-    console.log(day)
+
+    // update task on front end
+    function handleUpdateTask(updatedTaskObj) {
+      console.log(list)
+      
+        console.log("Updating!")
+        const sublist = list.sublists.find((s) => s.id === updatedTaskObj.sublist_id)
+        sublist.tasks = sublist.tasks.map((t) => {
+          if(t.id === updatedTaskObj.id) {
+            return updatedTaskObj
+          } else return t
+        })
+        console.log(list)
+
+        handleUpdateList(list)
+    }
   return (
     <div>
     {
@@ -152,6 +170,8 @@ function ListPage({lists, handleUpdateList}) {
             key = {s.id}
             tasks = {s.tasks}
             onDeleteTask = {handleDeleteTask}
+            onUpdateTask = {handleUpdateTask}
+            findSublistByDay = {findSublistByDay}
           />
             )
           }
@@ -169,6 +189,8 @@ function ListPage({lists, handleUpdateList}) {
                day = {sublist.name}
                tasks = {sublist.tasks}
                onDeleteTask = {handleDeleteTask}
+               onUpdateTask = {handleUpdateTask}
+               findSublistByDay = {findSublistByDay}
               />
             )
           })

@@ -1,11 +1,12 @@
 import React, {useState} from 'react'
+import TaskForm from './TaskForm'
 
 import "./Task.css"
 
-function Task({text, priority, id, onDeleteTask}) {
+function Task({text, priority, id, onDeleteTask, day, sublist_id, onUpdateTask, findSublistByDay}) {
 
   const [hover, setHover] = useState(false)
-  // const [priorityClass, setPriorityClass] = useState(priority)
+  const [hidden, setHidden] = useState(true)
 
   function handleDeleteTask() {
     fetch(`http://localhost:9292/lists/sublists/tasks/${id}`, {
@@ -15,8 +16,23 @@ function Task({text, priority, id, onDeleteTask}) {
       .then((data) => onDeleteTask(data.id, data.sublist_id))
   }
 
-  // function handleClick() {
-  //   setClicked(true)
+  function handleClick() {
+    setHidden(false)
+  }
+
+  function hideModal() {
+    setHidden(true)
+  }
+
+  function hideHoverMenu() {
+    setHover(false)
+  }
+
+  // function findClicked(e) {
+  //   if(e.target.value === day) {
+  //     e.target.className = "day-picked"
+  //     // maybe use ID??
+  //   }
   // }
   return (
     <div
@@ -28,20 +44,23 @@ function Task({text, priority, id, onDeleteTask}) {
       : "task-container"
     }
     >
-    {/* {
-      clicked
-      ? 
-        <div id = "task-modal">
-          <button
-          class = "task-button"
-          >Edit Task</button>
-          <button
-          class = "task-button"
-          >Update Task</button>
+       {
+        hidden
+      ? null
+      : <div id = "task-modal">
+          <TaskForm
+            hideModal = {hideModal}
+            text = {text}
+            priority = {priority}
+            day = {day}
+            id = {id}
+            sublist_id = {sublist_id}
+            hideHoverMenu = {hideHoverMenu}
+            onUpdateTask = {onUpdateTask}
+            findSublistByDay = {findSublistByDay}
+          />
         </div>
-      : null
-
-    } */}
+    }
       
       <div id = "show-container">
         <input
@@ -51,7 +70,11 @@ function Task({text, priority, id, onDeleteTask}) {
         />
         {/* <p type = "text" id = "task-text" value = {text}
         >{text}</p> */}
-        <span  role = "textbox" id = "task-text" contentEditable>{text}</span>
+
+        <p
+          id = "task-text"
+        >{text}</p>
+
         {/* maybe add class = input */}
       </div>
 
@@ -59,9 +82,9 @@ function Task({text, priority, id, onDeleteTask}) {
         ?
         <div id = "hover-container">
           <div
-            id = "cogwheel"
-            // onClick = {handleClick}
-          >❗</div>
+          id = "edit-pencil"
+            onClick = {handleClick}
+          >✏️</div>
         </div>
         : null
       }

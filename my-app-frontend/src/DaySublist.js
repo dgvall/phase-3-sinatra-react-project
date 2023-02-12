@@ -3,7 +3,7 @@ import Task from "./Task"
 
 import "./DaySublist.css"
 
-function DaySublist({day, tasks, onDeleteTask}) {
+function DaySublist({day, tasks, onDeleteTask, onUpdateTask, findSublistByDay}) {
   return (
     <div id = "sublist-container">
       <h1 className = "sublist-header">{day}</h1>
@@ -13,11 +13,14 @@ function DaySublist({day, tasks, onDeleteTask}) {
           return (
             <Task
             key = {t.id}
+            day = {day}
             id = {t.id}
             text = {t.text}
             priority = {t.priority}
             onDeleteTask = {onDeleteTask}
-            // sublist_id = {t.sublist_id}
+            sublist_id = {t.sublist_id}
+            onUpdateTask = {onUpdateTask}
+            findSublistByDay = {findSublistByDay}
           />
           )
         })

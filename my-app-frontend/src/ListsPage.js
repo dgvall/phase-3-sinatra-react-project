@@ -24,9 +24,9 @@ function ListsPage({lists, handleUpdateLists}) {
         </div>
     }
 
-<div className = "overlay">
+{/* <div className = "overlay">
 
-</div>
+</div> */}
 
       <h1 id = "title">To-Do Lists</h1>
       <div id = "card-container">

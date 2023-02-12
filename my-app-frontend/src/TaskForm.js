@@ -3,43 +3,107 @@ import {useHistory} from 'react-router-dom'
 
 import './TaskForm.css'
 
-function TaskForm({setHidden}) {
-  const [task, setTask] = useState("")
+function TaskForm({hideModal, text, priority, day, id, sublist_id, hideHoverMenu, onUpdateTask, findSublistByDay}) {
+  // const [task, setTask] = useState("")
+  const [submitDay, setSubmitDay] = useState(day)
+  const [submitText, setSubmitText] =  useState(text)
+  const [submitPriority, setSubmitPriority] = useState(priority)
 
-  const history = useHistory()
+  function handleSubmit(e) {
+    e.preventDefault()
+    const sublist = findSublistByDay(submitDay)
 
-  function handleSubmit() {
-    // fetch('http://localhost:9292/lists', {
-    //   method: "POST",
-    //   headers: {
-    //     "Content-Type": "application/json",
-    //   },
-    //   body: JSON.stringify({name: task})
-    // })
-    //   .then(res => res.json())
-    //   .then(data => {
-    //     console.log(data)
-    //     history.push(`/lists/${data.id}`)
-    //   })
+    const updatedTaskObj = {
+      text: submitText,
+      sublist_id: sublist.id,
+      priority: submitPriority
+    }
+
+    fetch(`http://localhost:9292/lists/sublists/tasks/${id}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(updatedTaskObj)
+    })
+      .then(res => res.json())
+      .then(data => {
+        onUpdateTask(data)
+        hideModal()
+        hideHoverMenu()
+      })
   }
 
   return (
     <div id = "task-form-modal">
       <div id = "task-form-content">
         <div id = "task-form-header">
-          <h2 className = "modal-title">Create Task</h2>
+          <h2 className = "modal-title">Edit Task</h2>
           <button
             id = "close-task-modal"
-            onClick = {() => setHidden(true)}
+            onClick = {() => {
+              hideModal()
+              hideHoverMenu()
+            }}
           >x</button>
         </div>
 
         <div id = "task-form-body">
+        <form
+      id = "task-creation"
+      onSubmit = {handleSubmit}
+      >
+        <div id = "day-container">
+        <select
+          onChange = {(e) => setSubmitDay(e.target.value)}
+          value = {submitDay}
+        >
+          <option>
+            General
+          </option>
+          <option>
+            Sunday
+          </option>
+          <option>
+            Monday
+          </option>
+          <option>
+            Tuesday
+          </option>
+          <option>
+            Wednesday
+          </option>
+          <option>
+            Thursday
+          </option>
+          <option>
+            Friday
+          </option>
+          <option>
+            Saturday
+          </option>
+        </select>
+        </div>
           <input
-           onChange = {(e) => setTask(e.target.value)}
-           value = {task}
-           placeholder = "Task"
-          />
+            id = "text-input-form"
+            type = "text"
+            placeholder = "Task here"
+            onChange = {(e) => setSubmitText(e.target.value)}
+            value = {submitText}
+          >
+          </input>
+        <div id = "priority-container">
+        <input
+          id = "priority-checkbox"
+          type = "checkbox"
+          onChange = {() => setSubmitPriority(() => !submitPriority)}
+          checked = {submitPriority}
+        >
+        </input>
+        <label id = "priority-label" >Priority</label>
+
+        </div>
+      </form>
         </div>
       
         <div id = "task-form-footer">

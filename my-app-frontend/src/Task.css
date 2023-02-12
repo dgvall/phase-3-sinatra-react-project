@@ -31,7 +31,7 @@
   padding-top: 10px;
   padding-bottom: 10px;
 }
-#cogwheel {
+#edit-pencil {
   display: flex;
   position: absolute;
   margin: none;
@@ -51,13 +51,23 @@
 }
 
 #task-modal {
-  position:fixed;
+  /* position:fixed; */
   width: 10rem;
   background-color: #fff;
-  z-index: 2;
+  z-index: 100;
   border: solid red 2px;
 }
 
 .task-button {
   font-size: 1rem;
 }
+/* 
+#days {
+  display: flex;
+  flex-direction: row;
+  transform: translate(-233px, -28px)
+}
+
+.day {
+  font-size: 20px;
+} */

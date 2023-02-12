@@ -11,7 +11,7 @@
 }
 
 #task-form-content {
-  width: 30rem;
+  width: 50rem;
   background-color: #fff;
   margin-bottom: 20em;
   z-index: 2;
@@ -34,11 +34,16 @@
   padding: 10px;
 }
 
-#task-modal {
+#close-task-modal {
   height: 1.3em;
   width: 1.3em;
 }
 
 .modal-title {
-  margin-right: 6em;
+  margin-right: 13em;
+}
+
+#text-input-form {
+  display: flex;
+  word-wrap: break-word;
 }
