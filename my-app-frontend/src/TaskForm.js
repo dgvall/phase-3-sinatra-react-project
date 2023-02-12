@@ -11,6 +11,7 @@ function TaskForm({hideModal, text, priority, day, id, sublist_id, hideHoverMenu
 
   function handleSubmit(e) {
     e.preventDefault()
+    const oldSublist = findSublistByDay(day)
     const sublist = findSublistByDay(submitDay)
 
     const updatedTaskObj = {
@@ -28,7 +29,7 @@ function TaskForm({hideModal, text, priority, day, id, sublist_id, hideHoverMenu
     })
       .then(res => res.json())
       .then(data => {
-        onUpdateTask(data)
+        onUpdateTask(data, oldSublist.id)
         hideModal()
         hideHoverMenu()
       })

@@ -63,18 +63,34 @@ function ListPage({lists, handleUpdateList}) {
     }
 
     // update task on front end
-    function handleUpdateTask(updatedTaskObj) {
-      console.log(list)
-      
-        console.log("Updating!")
-        const sublist = list.sublists.find((s) => s.id === updatedTaskObj.sublist_id)
+    function handleUpdateTask(updatedTaskObj, oldSublistId) {
+      // if (updatedTaskObj.sublist_id !== oldSublistId) {
+      //   handleDeleteTask(updatedTaskObj.id, oldSublistId)
+      // }
+
+      const sublist = list.sublists.find((s) => s.id === updatedTaskObj.sublist_id)
+      const oldSublist = list.sublists.find((s) => s.id === oldSublistId)
+
+      // same sublist
+      if (updatedTaskObj.sublist_id === oldSublistId) {
+        console.log("equal!")
         sublist.tasks = sublist.tasks.map((t) => {
           if(t.id === updatedTaskObj.id) {
             return updatedTaskObj
           } else return t
         })
-        console.log(list)
+      }
 
+      // moving sublists
+        else {
+          oldSublist.tasks = oldSublist.tasks.filter((t) => {
+            if(t.id !== updatedTaskObj.id) {
+              return t
+            }
+          sublist.tasks = [...sublist.tasks, updatedTaskObj]
+          })
+          
+        }
         handleUpdateList(list)
     }
   return (
