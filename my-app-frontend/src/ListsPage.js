@@ -12,16 +12,16 @@ function ListsPage({lists, handleUpdateLists}) {
   }
   
   return (
-    <div>
-      {hidden
+<div>
+    {hidden
       ? null
       : <div className = "lists-user-modal">
-          <UserForm
+        <UserForm
           handleHidden = {hideModal}
           handleUpdateLists = {handleUpdateLists}
-          />
+        />
         </div>
-      }
+    }
 
 <div className = "overlay">
 

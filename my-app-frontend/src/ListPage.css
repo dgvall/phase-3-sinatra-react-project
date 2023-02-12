@@ -1,9 +1,20 @@
 #list-header {
   display:flex;
   border: solid 2px red;
-  position: absolute;
+  justify-content: space-between;
   padding-left: 1em;
   padding-right: 1em;
+  z-index: 3;
+}
+
+#header-name {
+  display: flex;
+  font-size: 5rem;
+}
+
+#header-form {
+  display: flex;
+  font-size: 5rem;
 }
 
 #task-creation {
@@ -21,4 +32,11 @@
 
 #back-arrow {
   cursor: pointer;
+}
+
+#list-name {
+  padding-top: .3em;
+  padding-left: 1em;
+  font-size: 3rem;
+  margin: 0;
 }

@@ -8,7 +8,7 @@ import "./ListPage.css"
 function ListPage({lists, handleUpdateList}) {
   const history = useHistory()
   const [quickTask, setQuickTask] = useState("")
-  let {id} = useParams()
+  const {id} = useParams()
 
   const list = lists.find((l) => l.id === parseInt(id))
   console.log(list)
@@ -60,11 +60,13 @@ function ListPage({lists, handleUpdateList}) {
       ? 
     <div>
       <div id = "list-header">
-        <p
-        id = "back-arrow"
-        onClick = {(e) => history.push("/lists")}
-        >{"<-"}</p>
-        <p>{list.name}</p>
+        <div id = "header-name">
+          <p
+            onClick = {(e) => history.push("/lists")}
+          >{"<-"}</p>
+          <p id = "list-name" >{list.name}</p>
+        </div>
+        <div id = "header-form" >+</div>
       </div>
       <form
       id = "task-creation"

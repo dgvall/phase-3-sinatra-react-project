@@ -5,6 +5,7 @@ import "./Task.css"
 function Task({text, priority, id, onDeleteTask}) {
 
   const [hover, setHover] = useState(false)
+  const [clicked, setClicked] = useState(false)
 
   function handleDeleteTask() {
     fetch(`http://localhost:9292/lists/sublists/tasks/${id}`, {
@@ -13,11 +14,31 @@ function Task({text, priority, id, onDeleteTask}) {
       .then((res) => res.json())
       .then((data) => onDeleteTask(data.id, data.sublist_id))
   }
+
+  function handleClick() {
+    setClicked(true)
+  }
   return (
     <div
     onMouseEnter = {() => setHover(true)}
     onMouseLeave = {() => setHover(false)}
-    id = "task-container">
+    id = "task-container"
+    >
+    {/* {
+      clicked
+      ? 
+        <div id = "task-modal">
+          <button
+          class = "task-button"
+          >Edit Task</button>
+          <button
+          class = "task-button"
+          >Update Task</button>
+        </div>
+      : null
+
+    } */}
+      
       <div id = "show-container">
         <input
           id = "checkbox"
@@ -30,7 +51,10 @@ function Task({text, priority, id, onDeleteTask}) {
       { hover
         ?
         <div id = "hover-container">
-          <div id = "cogwheel">⚙️</div>
+          <div
+            id = "cogwheel"
+            onClick = {handleClick}
+          >⚙️</div>
         </div>
         : null
       }
