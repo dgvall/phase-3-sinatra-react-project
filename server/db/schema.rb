@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_02_09_073324) do
+ActiveRecord::Schema.define(version: 2023_02_12_020906) do
 
   create_table "lists", force: :cascade do |t|
     t.string "name"
@@ -23,7 +23,6 @@ ActiveRecord::Schema.define(version: 2023_02_09_073324) do
 
   create_table "tasks", force: :cascade do |t|
     t.string "text"
-    t.string "details"
     t.boolean "priority"
     t.integer "sublist_id"
   end

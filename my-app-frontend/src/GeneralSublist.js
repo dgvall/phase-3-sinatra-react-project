@@ -16,7 +16,6 @@ function GeneralSublist({tasks, onDeleteTask}) {
             key = {t.id}
             id = {t.id}
             text = {t.text}
-            details = {t.details}
             priority = {t.priority}
             onDeleteTask = {onDeleteTask}
             // sublist_id = {t.sublist_id}

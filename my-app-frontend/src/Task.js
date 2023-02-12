@@ -2,19 +2,9 @@ import React, {useState} from 'react'
 
 import "./Task.css"
 
-function Task({text, details, priority, id, onDeleteTask}) {
+function Task({text, priority, id, onDeleteTask}) {
 
   const [hover, setHover] = useState(false)
-
-  function handleMouseEnter() {
-    setHover(true)
-    console.log("Mouse Entered!")
-  }
-
-  function handleMouseLeave() {
-    setHover(false)
-    console.log("Mouse Left!")
-  }
 
   function handleDeleteTask() {
     fetch(`http://localhost:9292/lists/sublists/tasks/${id}`, {
@@ -25,8 +15,8 @@ function Task({text, details, priority, id, onDeleteTask}) {
   }
   return (
     <div
-    onMouseEnter = {handleMouseEnter}
-    onMouseLeave = {handleMouseLeave}
+    onMouseEnter = {() => setHover(true)}
+    onMouseLeave = {() => setHover(false)}
     id = "task-container">
       <div id = "show-container">
         <input
@@ -41,7 +31,6 @@ function Task({text, details, priority, id, onDeleteTask}) {
         ?
         <div id = "hover-container">
           <div id = "cogwheel">⚙️</div>
-          <div id = "details">details</div>
         </div>
         : null
       }
