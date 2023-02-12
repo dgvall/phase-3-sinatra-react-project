@@ -90,13 +90,7 @@ function ListPage({lists, handleUpdateList}) {
       id = "task-creation"
       onSubmit = {handleQuickSubmit}
       >
-        <p>Add Task</p>
-        <input
-          placeholder = "Task here"
-          onChange = {(e) => setQuickTask(e.target.value)}
-          value = {quickTask}
-        >
-        </input>
+        <div id = "day-container">
         <select
           onChange = {(e) => setDay(e.target.value)}
         >
@@ -125,17 +119,28 @@ function ListPage({lists, handleUpdateList}) {
             Saturday
           </option>
         </select>
-        <div>
+        </div>
+        <div id = "text-input-form">
+          <label id = "form-label">Add Task</label>
+          <input
+            placeholder = "Task here"
+            onChange = {(e) => setQuickTask(e.target.value)}
+            value = {quickTask}
+          >
+          </input>
+          <button>Submit</button>
+        </div>
+        <div id = "priority-container">
         <input
+          id = "priority-checkbox"
           type = "checkbox"
           value = {priority}
           onChange = {() => setPriority(() => !priority)}
         >
         </input>
-        <label>Priority</label>
+        <label id = "priority-label" >Priority</label>
 
         </div>
-        <button>Submit</button>
       </form>
       {
         list.sublists.map((s) => {

@@ -19,6 +19,8 @@
 
 #task-text {
   font-size: 1rem;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 #cogwheel {
   display: flex;

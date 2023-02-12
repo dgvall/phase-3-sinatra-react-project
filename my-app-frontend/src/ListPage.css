@@ -20,7 +20,7 @@
 #task-creation {
   display: flex;
   justify-content: center;
-  flex-direction:column;
+  flex-direction:row;
   align-items: center;
 }
 
@@ -39,4 +39,34 @@
   padding-left: 1em;
   font-size: 3rem;
   margin: 0;
+}
+
+#text-input-form {
+  display: flex;
+  flex-direction: column;
+}
+
+#form-label {
+  display: flex;
+  justify-content: center;
+}
+
+#priority-checkbox {
+  display: flex;
+  width: 25px;
+  margin: 0;
+}
+#priority-container {
+  display: flex;
+  padding-left: 40px;
+  padding-right: 70px;
+}
+
+#priority-label {
+  padding-left: 10px;
+}
+
+#day-container {
+  display: flex;
+  padding-right: 40px;
 }

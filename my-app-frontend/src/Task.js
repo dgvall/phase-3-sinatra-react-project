@@ -47,7 +47,7 @@ function Task({text, priority, id, onDeleteTask}) {
         />
         {/* <p type = "text" id = "task-text" value = {text}
         >{text}</p> */}
-        <span role = "textbox" id = "task-text" contentEditable>{text}</span>
+        <span  role = "textbox" id = "task-text" contentEditable>{text}</span>
         {/* maybe add class = input */}
       </div>
 
@@ -57,7 +57,7 @@ function Task({text, priority, id, onDeleteTask}) {
           <div
             id = "cogwheel"
             onClick = {handleClick}
-          >⚙️</div>
+          >❗</div>
         </div>
         : null
       }
