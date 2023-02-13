@@ -1,7 +1,6 @@
 import React, {useState} from 'react'
 import ListCard from './ListCard'
 import UserForm from './UserForm'
-import TaskForm from './TaskForm'
 
 import './ListsPage.css'
 
@@ -34,7 +33,7 @@ function ListsPage({lists, handleUpdateLists}) {
         id = "form-creation"
         onClick = {() => setHidden(false)}
         >
-          +
+          <p id = "plus" >+</p>
         </div>
           {
             lists.map(list => {

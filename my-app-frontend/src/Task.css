@@ -6,24 +6,22 @@
 #show-container {
   display: flex;
   flex-direction: row;
-  border: solid red 2px;
 }
 
 #task-container {
   display: flex;
   justify-content: space-between;
-  border: solid blue 2px;
   width: 10em;
   margin: .3em;
+  border: solid white 10px;
 }
 
 #priority-task-container {
   display: flex;
   justify-content: space-between;
-  border: solid blue 2px;
   width: 10em;
   margin: .3em;
-  background-color: rgb(209, 209, 209);
+  border: solid rgb(218, 92, 92) 10px;
 }
 
 #task-text {
@@ -36,8 +34,8 @@
   position: absolute;
   margin: none;
   justify-content: flex-end;
-  border: solid red 2px;
   transform: translateX(-38px);
+  cursor: pointer;
 }
 
 #details {
@@ -51,23 +49,12 @@
 }
 
 #task-modal {
-  /* position:fixed; */
+  position:fixed;
   width: 10rem;
   background-color: #fff;
-  z-index: 100;
-  border: solid red 2px;
+  z-index: 10;
 }
 
 .task-button {
   font-size: 1rem;
 }
-/* 
-#days {
-  display: flex;
-  flex-direction: row;
-  transform: translate(-233px, -28px)
-}
-
-.day {
-  font-size: 20px;
-} */

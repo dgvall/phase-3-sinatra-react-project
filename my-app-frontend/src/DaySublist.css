@@ -4,14 +4,18 @@
   flex-direction: column;
   flex-wrap: wrap;
   text-align: center;
+  background-color: #F3CCFF;
 }
 
 #sublist-container {
   display: flex;
   flex-direction: column;
-  border: solid 2px red;
+  border: solid 10px #A555EC;
+  border-bottom: none;
+  background-color: #F3CCFF;
   align-items: center;
-  width: 500px;
+  width:470px;
+  height: 50em;
 }
 
 /* edit in ./GeneralSublist.css */

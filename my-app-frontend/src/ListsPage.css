@@ -1,19 +1,22 @@
 #card-container {
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
   align-items: center;
+  background-color: #D09CFA;
 }
 
 #form-creation {
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 3px solid red;
+  border: 10px solid rgb(0, 0, 0);
   width: 200px;
   height: 200px;
   font-size: 5rem;
   margin: 15px;
   cursor: pointer;
+  background-color: #fdfdfd;
 }
 
 #title {
@@ -22,6 +25,14 @@
   font-size: 7rem;
   margin-bottom: 5rem;
 }
+
+#plus {
+  font-size: 6rem;
+  background-color: none;
+  transform: translate(-1px, -10px);
+  background-color: #fdfdfd;
+}
+
 /* 
 .lists-user-modal {
   display: flex;

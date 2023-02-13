@@ -4,17 +4,20 @@
   flex-direction: row;
   flex-wrap: wrap;
   text-align: center;
+  background-color: #F3CCFF;
 }
 
 #general-container {
   display: flex;
   flex-direction: column;
-  border: solid 2px red;
+  background-color: #F3CCFF;
   align-items: center;
 }
 
 .sublist-header {
   display: flex;
   font-size: 2.3rem;
-  border: solid 2px red;
+  /* border: solid 3px #A555EC; */
+  background-color: #F3CCFF;
+  text-decoration: underline;
 }

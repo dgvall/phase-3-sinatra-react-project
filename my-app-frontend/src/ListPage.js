@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState} from 'react'
 import {useHistory,useParams} from "react-router-dom"
 import GeneralSublist from './GeneralSublist.js'
 import DaySublist from './DaySublist.js'
@@ -113,13 +113,14 @@ function ListPage({lists, handleUpdateList}) {
         <div id = "header-name">
           <p
             onClick = {(e) => history.push("/lists")}
-          >{"<-"}</p>
+            id = "back-arrow"
+          >{"⬅️"}</p>
           <p id = "list-name" >{list.name}</p>
         </div>
-        <div
+        {/* <div
           id = "header-form"
           onClick = {() => setHidden(false)}
-        >+</div>
+        >+</div> */}
       </div>
       <form
       id = "task-creation"
@@ -164,7 +165,9 @@ function ListPage({lists, handleUpdateList}) {
             value = {quickTask}
           >
           </input>
-          <button>Submit</button>
+          <div id = "submit-container">
+            <button id = "submit-task-button">Submit</button>
+          </div>
         </div>
         <div id = "priority-container">
         <input
