@@ -9,6 +9,7 @@ function App() {
   const [lists, setLists] = useState([])
 
   useEffect(() => {
+    console.log("fetching!")
     fetch("http://localhost:9292/lists")
       .then(res => res.json())
       .then(data => setLists(data))

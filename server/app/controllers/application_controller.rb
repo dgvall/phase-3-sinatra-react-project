@@ -21,7 +21,7 @@ class ApplicationController < Sinatra::Base
     sublists = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "General"]
     sublists.each do |s|
       Sublist.create(name: s, list_id: list.id)
-    endhow 
+    end
     list.to_json(include: { sublists: { include: :tasks} })
   end
 

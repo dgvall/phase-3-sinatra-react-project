@@ -179,6 +179,7 @@ function ListPage({lists, handleUpdateList}) {
         </div>
       </form>
       {
+        
         list.sublists.map((s) => {
           if(s.name === "General") {
             return (
@@ -196,20 +197,22 @@ function ListPage({lists, handleUpdateList}) {
      
       <div id = "days-container">
 
-        {
-          days.map((day) => {
-            const sublist = list.sublists.find((s) => s.name === day)
-            return (
-              <DaySublist
-               key = {sublist.name}
-               day = {sublist.name}
-               tasks = {sublist.tasks}
-               onDeleteTask = {handleDeleteTask}
-               onUpdateTask = {handleUpdateTask}
-               findSublistByDay = {findSublistByDay}
-              />
-            )
-          })
+        
+          { 
+            days.map((day) => {
+              const sublist = list.sublists.find((s) => s.name === day)
+              return (
+                <DaySublist
+                 key = {sublist.name}
+                 day = {sublist.name}
+                 tasks = {sublist.tasks}
+                 onDeleteTask = {handleDeleteTask}
+                 onUpdateTask = {handleUpdateTask}
+                 findSublistByDay = {findSublistByDay}
+                />
+              )
+            })
+          
         }
       </div>
     </div>
