@@ -21,8 +21,8 @@ class ApplicationController < Sinatra::Base
     sublists = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "General"]
     sublists.each do |s|
       Sublist.create(name: s, list_id: list.id)
-    end 
-    list.to_json
+    endhow 
+    list.to_json(include: { sublists: { include: :tasks} })
   end
 
   # create new task
@@ -42,6 +42,7 @@ class ApplicationController < Sinatra::Base
   patch '/lists/sublists/tasks/:id' do
     task = Task.find(params[:id])
     task.update(text: params[:text], priority: params[:priority], sublist_id: params[:sublist_id])
+    task.to_json
   end
 
 
