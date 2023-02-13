@@ -31,11 +31,10 @@
   background-color: none;
   transform: translate(-1px, -10px);
   background-color: #fdfdfd;
+  z-index: 0;
 }
 
-/* 
-.lists-user-modal {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+
+/* .lists-user-modal {
+  background-color: none;
 } */

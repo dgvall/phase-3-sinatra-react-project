@@ -28,11 +28,11 @@ function UserForm({handleHidden, handleUpdateLists}) {
     <div id = "user-form-modal">
       <div id = "user-form-content">
         <div id = "user-form-header">
-          <h2 className = "modal-title">Create List</h2>
+          <h2 id = "user-modal-title">Create List</h2>
           <button
             id = "close-modal"
             onClick = {handleHidden}
-          >x</button>
+          >❌</button>
         </div>
 
         <div id = "user-form-body">

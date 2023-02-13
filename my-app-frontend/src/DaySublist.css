@@ -4,7 +4,7 @@
   flex-direction: column;
   flex-wrap: wrap;
   text-align: center;
-  background-color: #F3CCFF;
+  background-color: #D09CFA;
 }
 
 #sublist-container {
@@ -12,17 +12,18 @@
   flex-direction: column;
   border: solid 10px #A555EC;
   border-bottom: none;
-  background-color: #F3CCFF;
+  background-color: #fdfdfd;
   align-items: center;
   width:470px;
   height: 50em;
 }
 
-/* edit in ./GeneralSublist.css */
-
-/* .sublist-header {
+.sublist-header {
   display: flex;
   font-size: 2.3rem;
-  border: solid 2px red;
-} */
+  /* border: solid 3px #A555EC; */
+  background-color: #fdfdfd;
+  text-decoration: underline;
+  color: #1a1a1a;
+}
 

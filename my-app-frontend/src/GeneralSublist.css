@@ -14,10 +14,12 @@
   align-items: center;
 }
 
-.sublist-header {
+#general-header {
   display: flex;
   font-size: 2.3rem;
   /* border: solid 3px #A555EC; */
-  background-color: #F3CCFF;
+  background-color: #fdfdfd;
   text-decoration: underline;
+  background-color: #F3CCFF;
+  color: #1a1a1a;
 }

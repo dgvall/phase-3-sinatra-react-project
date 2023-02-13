@@ -46,7 +46,7 @@ function TaskForm({hideModal, text, priority, day, id, sublist_id, hideHoverMenu
               hideModal()
               hideHoverMenu()
             }}
-          >x</button>
+          >❌</button>
         </div>
 
         <div id = "task-form-body">
@@ -86,7 +86,7 @@ function TaskForm({hideModal, text, priority, day, id, sublist_id, hideHoverMenu
         </select>
         </div>
           <input
-            id = "text-input-form"
+            id = "task-text-input-form"
             type = "text"
             placeholder = "Task here"
             onChange = {(e) => setSubmitText(e.target.value)}

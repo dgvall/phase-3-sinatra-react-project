@@ -6,6 +6,7 @@
 #show-container {
   display: flex;
   flex-direction: row;
+  background-color: #FFFFD0;
 }
 
 #task-container {
@@ -14,6 +15,7 @@
   width: 10em;
   margin: .3em;
   border: solid white 10px;
+  background-color: #FFFFD0;
 }
 
 #priority-task-container {
@@ -21,13 +23,16 @@
   justify-content: space-between;
   width: 10em;
   margin: .3em;
-  border: solid rgb(218, 92, 92) 10px;
+  /* border: solid rgb(255, 191, 191) 10px; */
+  border: solid rgb(255, 113, 113) 10px;
+  background-color: #FFFFD0;
 }
 
 #task-text {
   font-size: 1rem;
   padding-top: 10px;
   padding-bottom: 10px;
+  background-color: #FFFFD0;
 }
 #edit-pencil {
   display: flex;
@@ -36,6 +41,7 @@
   justify-content: flex-end;
   transform: translateX(-38px);
   cursor: pointer;
+  background-color: #FFFFD0;
 }
 
 #details {

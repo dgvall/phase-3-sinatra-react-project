@@ -20,6 +20,7 @@
   display: flex;
   justify-content: flex-end;
   padding: 10px;
+  background-color: #F3CCFF;
 }
 #task-form-body {
   display: flex;
@@ -27,23 +28,39 @@
   padding: 10px;
   border-top: 1px solid #eee;
   border-bottom: 1px solid #eee;
+  background-color: #F3CCFF;
 }
 #task-form-footer {
   display: flex;
   justify-content: center;
   padding: 10px;
+  background-color: #F3CCFF;
 }
 
 #close-task-modal {
+  display: flex;
+  justify-content: center;
   height: 1.3em;
   width: 1.3em;
+  border: none;
+  background-color: #F3CCFF;
 }
 
 .modal-title {
   margin-right: 13em;
+  background-color: #F3CCFF;
 }
 
-#text-input-form {
+/* #task-text-input-form {
   display: flex;
   word-wrap: break-word;
+  background-color: white;
+} */
+
+#priority-label {
+  background-color: white;
 }
+
+/* #priority-container {
+  background-color: white;
+} */

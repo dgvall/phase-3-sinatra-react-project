@@ -6,7 +6,7 @@ import "./GeneralSublist.css"
 function GeneralSublist({tasks, onDeleteTask, onUpdateTask, findSublistByDay}) {
   return (
     <div id = "general-container">
-      <h1 className = "sublist-header">General</h1>
+      <h1 id = "general-header">General</h1>
       <div id = "general-task-container">
 
       {

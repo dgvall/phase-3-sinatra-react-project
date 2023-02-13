@@ -5,12 +5,16 @@
   padding-right: 1em;
   z-index: 3;
   background-color: #A555EC;
+  font-weight: 700;
+  -webkit-text-stroke: 3px #1a1a1a;
 }
 
 #header-name {
   display: flex;
   font-size: 5rem;
   background-color: #A555EC;
+  color: white;
+  text-decoration:none;
 }
 
 #list-name {
@@ -61,7 +65,7 @@
   display: flex;
   justify-content: center;
   background-color: #F3CCFF;
-  
+  padding-top: 3vh;
 }
 
 #priority-checkbox {
@@ -90,20 +94,24 @@
 
 select, input {
   background-color: #fdfdfd;
+  border-radius: 12px;
 }
 
 button {
   background-color: #fdfdfd;
+  border-radius: 12px;
 }
 
 #submit-task-button {
   height: 100%;
-  width: 100%;
+  width: 100%
 }
 
 #submit-container {
+  padding-top: 1.2vh;
+  padding-bottom: 1vh;
   height: 1.6vw;
   width: 6vw;
-  padding-left: 2.7vw;
+  padding-left: 2.8vw;
   background-color: #F3CCFF;
 }

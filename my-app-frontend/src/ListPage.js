@@ -197,7 +197,6 @@ function ListPage({lists, handleUpdateList}) {
           }
         })
       }
-     
       <div id = "days-container">
 
         

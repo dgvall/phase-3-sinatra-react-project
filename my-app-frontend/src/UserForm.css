@@ -8,6 +8,7 @@
   right: 0;
   bottom: 0;
   background-color: rgba(0,0,0,0.5);
+  z-index: 10;
 }
 
 #user-form-content {
@@ -19,7 +20,7 @@
 #user-form-header {
   display: flex;
   justify-content: flex-end;
-  padding: 10px;
+  /* padding: 10px; */
 }
 #user-form-body {
   display: flex;
@@ -35,10 +36,15 @@
 }
 
 #close-modal {
+  display: flex;
+  justify-content: center;
   height: 1.3em;
   width: 1.3em;
+  border: none;
+  background-color: #F3CCFF;
+  
 }
 
-.modal-title {
-  margin-right: 6em;
+#user-modal-title {
+  margin-right: 6.5vw;
 }
