@@ -13,7 +13,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Installation
 
-In the /my-front-end-app directory, run
+In the /my-app-frontend directory, run
 
 ### `npm install`
 
