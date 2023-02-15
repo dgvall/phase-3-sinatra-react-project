@@ -25,7 +25,7 @@ Runs the front-end of the build
 
 ## Back-end Setup
 
-This project was bootstrapped with [Ruby](https://github.com/ruby).
+This project was built with with [Ruby](https://github.com/ruby).
 
 ## Installation
 
