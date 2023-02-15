@@ -3,9 +3,22 @@
 To-Do List is a single page application that allows users to create an organized list of tasks they need "to-do."
 
 ## How To-Do List Works
+
+### Creating a List
+
 On the main /lists page, a user can create a list by pressing the "+" button. "List Profiles" that have already been created will be appended to the right of create button. Clicking on a list profile will send a user to that specific list.
 
-On the /list page, a user can customize that list by creating a task in the form at the top of the page. For each task, you can assign it attributes of a text description, a sublist, and priority. Sublists consist of the days of the week or a "general" list that contains tentative tasks. Assigning a task "priority" gives it a red outline and is meant to symbolize an important to-do. On a given task, click the checkbox to complete it and remove it from the list. To edit your task, hover over it and click the pencil to access the edit task menu. The edit task menu allows the user to edit the attributes of the given task.
+### List and Sublists
+
+On the /list page, a user can customize that list by creating a tasks in individual sublist containers of the days of the week or a "general" container that holds tentative tasks.
+
+### Creating a Task
+
+Use the form at the top of the page to create tasks. For each task, you can assign it the following attributes: text description, sublist, and priority. Text decription is the task itself. Sublist represents which container the task will append to. Assigning a task "priority" gives it a red outline and is meant to symbolize an important to-do.
+
+### Completing and Editing a Task
+
+On a given task, click the checkbox to complete it and remove it from the list. To edit your task, hover over it and click the pencil to access the edit task menu. The edit task menu allows the user to edit the attributes of the given task.
 
 ## Front-end Setup
 
@@ -33,9 +46,9 @@ In the /server directory, run
 
 ### `bundle install`
 
-Installs gems necessary for the server to function.
+Installs gems necessary for server to function.
 
 ### `bundle exec rake server`
 
-This will run your server on port http://localhost:9292.
+Runs your server on port http://localhost:9292.
 
