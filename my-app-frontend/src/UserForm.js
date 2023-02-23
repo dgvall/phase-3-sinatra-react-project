@@ -3,7 +3,7 @@ import {useHistory} from 'react-router-dom'
 
 import './UserForm.css'
 
-function UserForm({handleHidden, handleUpdateLists}) {
+function UserForm({handleHidden, handleCreateList}) {
   const [listName, setListName] = useState("")
 
   const history = useHistory()
@@ -19,7 +19,7 @@ function UserForm({handleHidden, handleUpdateLists}) {
       .then(res => res.json())
       .then(data => {
         console.log(data)
-        handleUpdateLists(data)
+        handleCreateList(data)
         history.push(`/lists/${data.id}`)
       })
   }

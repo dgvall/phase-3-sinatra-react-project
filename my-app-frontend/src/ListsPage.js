@@ -4,7 +4,7 @@ import UserForm from './UserForm'
 
 import './ListsPage.css'
 
-function ListsPage({lists, handleUpdateLists}) {
+function ListsPage({lists, handleCreateList}) {
   const [hidden, setHidden] = useState(true)
 
   function hideModal() {
@@ -18,7 +18,7 @@ function ListsPage({lists, handleUpdateLists}) {
       : <div className = "lists-user-modal">
         <UserForm
           handleHidden = {hideModal}
-          handleUpdateLists = {handleUpdateLists}
+          handleCreateList = {handleCreateList}
         />
         </div>
     }

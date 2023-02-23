@@ -9,16 +9,16 @@ function App() {
   const [lists, setLists] = useState([])
 
   useEffect(() => {
-    console.log("fetching!")
     fetch("http://localhost:9292/lists")
       .then(res => res.json())
       .then(data => setLists(data))
   }, [])
 
-  function onUpdateLists(listObj) {
+  // Update Lists State with New List
+  function onCreateList(listObj) {
     setLists([...lists, listObj])
   }
-
+  // Update Lists State with Updated List
   function onUpdateList(updatedListObj) {
     const updatedLists = (lists.map((l) => {
       if(l.id === updatedListObj.id) {
@@ -28,14 +28,13 @@ function App() {
     setLists(updatedLists)
   }
     
-
   return (
     <div>
       <Switch>
-        <Route path = '/'>
+        <Route exact path = '/lists'>
           <ListsPage
             lists = {lists}
-            handleUpdateLists = {onUpdateLists}
+            handleCreateList = {onCreateList}
           />
         </Route>
         <Route exact path = '/lists/:id'>
