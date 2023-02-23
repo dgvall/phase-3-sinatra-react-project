@@ -4,17 +4,15 @@ import './ListCard.css'
 
 function ListCard({name, id}) {
   const history = useHistory()
+  
   return (
     <div
-    onClick = {() => {
-      history.push(`/lists/${id}`
-      )}}
-    id = "list-card"
+      onClick = {() => history.push(`/lists/${id}`)}
+      id = "list-card"
     >
-      {name}
+    {name}
     </div>
   )
-
 }
 
 export default ListCard;

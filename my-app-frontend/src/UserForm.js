@@ -18,7 +18,6 @@ function UserForm({handleHidden, handleCreateList}) {
     })
       .then(res => res.json())
       .then(data => {
-        console.log(data)
         handleCreateList(data)
         history.push(`/lists/${data.id}`)
       })
@@ -37,15 +36,15 @@ function UserForm({handleHidden, handleCreateList}) {
 
         <div id = "user-form-body">
           <input
-           onChange = {(e) => setListName(e.target.value)}
-           value = {listName}
-           placeholder = "List name"
+            onChange = {(e) => setListName(e.target.value)}
+            value = {listName}
+            placeholder = "List name"
           />
         </div>
       
         <div id = "user-form-footer">
           <button
-          onClick = {handleSubmit}
+            onClick = {handleSubmit}
           >Submit</button>
         </div>
       </div>
