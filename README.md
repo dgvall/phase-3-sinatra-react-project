@@ -48,6 +48,9 @@ In the /server directory, run
 
 Installs gems necessary for server to function.
 
+### `bundle exec rake db:migrate`
+Runs migration files and builds schema for database
+
 ### `bundle exec rake server`
 
 Runs your server on port http://localhost:9292.

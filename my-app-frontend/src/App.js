@@ -32,7 +32,7 @@ function App() {
   return (
     <div>
       <Switch>
-        <Route exact path = '/lists'>
+        <Route path = '/'>
           <ListsPage
             lists = {lists}
             handleUpdateLists = {onUpdateLists}
