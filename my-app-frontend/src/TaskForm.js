@@ -1,10 +1,8 @@
 import React, {useState} from 'react'
-import {useHistory} from 'react-router-dom'
 
 import './TaskForm.css'
 
 function TaskForm({hideModal, text, priority, day, id, sublist_id, hideHoverMenu, onUpdateTask, findSublistByDay}) {
-  // const [task, setTask] = useState("")
   const [submitDay, setSubmitDay] = useState(day)
   const [submitText, setSubmitText] =  useState(text)
   const [submitPriority, setSubmitPriority] = useState(priority)
@@ -48,43 +46,26 @@ function TaskForm({hideModal, text, priority, day, id, sublist_id, hideHoverMenu
             }}
           >❌</button>
         </div>
-
         <div id = "task-form-body">
         <form
-      id = "task-creation"
-      onSubmit = {handleSubmit}
-      >
-        <div id = "day-container">
-        <select
-          onChange = {(e) => setSubmitDay(e.target.value)}
-          value = {submitDay}
+          id = "task-creation"
+          onSubmit = {handleSubmit}
         >
-          <option>
-            General
-          </option>
-          <option>
-            Sunday
-          </option>
-          <option>
-            Monday
-          </option>
-          <option>
-            Tuesday
-          </option>
-          <option>
-            Wednesday
-          </option>
-          <option>
-            Thursday
-          </option>
-          <option>
-            Friday
-          </option>
-          <option>
-            Saturday
-          </option>
-        </select>
-        </div>
+          <div id = "day-container">
+          <select
+            onChange = {(e) => setSubmitDay(e.target.value)}
+            value = {submitDay}
+          >
+            <option>General</option>
+            <option>Sunday</option>
+            <option>Monday</option>
+            <option>Tuesday</option>
+            <option>Wednesday</option>
+            <option>Thursday</option>
+            <option>Friday</option>
+            <option>Saturday</option>
+          </select>
+          </div>
           <input
             id = "task-text-input-form"
             type = "text"
@@ -93,25 +74,23 @@ function TaskForm({hideModal, text, priority, day, id, sublist_id, hideHoverMenu
             value = {submitText}
           >
           </input>
-        <div id = "priority-container">
-        <input
-          id = "priority-checkbox"
-          type = "checkbox"
-          onChange = {() => setSubmitPriority(() => !submitPriority)}
-          checked = {submitPriority}
-        >
-        </input>
-        <label id = "priority-label" >Priority</label>
-
-        </div>
+          <div id = "priority-container">
+            <input
+              id = "priority-checkbox"
+              type = "checkbox"
+              onChange = {() => setSubmitPriority(() => !submitPriority)}
+              checked = {submitPriority}
+            >
+            </input>
+            <label id = "priority-label" >Priority</label>
+          </div>
       </form>
-        </div>
-      
-        <div id = "task-form-footer">
-          <button
+      </div>
+      <div id = "task-form-footer">
+        <button
           onClick = {handleSubmit}
-          >Submit</button>
-        </div>
+        >Submit</button>
+      </div>
       </div>
     </div>
   )

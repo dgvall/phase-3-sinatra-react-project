@@ -8,20 +8,19 @@ function GeneralSublist({tasks, onDeleteTask, onUpdateTask, findSublistByDay}) {
     <div id = "general-container">
       <h1 id = "general-header">General</h1>
       <div id = "general-task-container">
-
       {
         tasks.map((t) => {
           return (
             <Task
-            key = {t.id}
-            id = {t.id}
-            text = {t.text}
-            priority = {t.priority}
-            onDeleteTask = {onDeleteTask}
-            day = "General"
-            sublist_id = {t.sublist_id}
-            onUpdateTask = {onUpdateTask}
-            findSublistByDay = {findSublistByDay}
+              key = {t.id}
+              id = {t.id}
+              text = {t.text}
+              priority = {t.priority}
+              onDeleteTask = {onDeleteTask}
+              day = "General"
+              sublist_id = {t.sublist_id}
+              onUpdateTask = {onUpdateTask}
+              findSublistByDay = {findSublistByDay}
           />
           )
         })
@@ -29,7 +28,6 @@ function GeneralSublist({tasks, onDeleteTask, onUpdateTask, findSublistByDay}) {
       </div>
     </div>
   )
-
 }
 
 export default GeneralSublist;

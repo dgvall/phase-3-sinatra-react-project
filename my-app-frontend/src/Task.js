@@ -28,26 +28,21 @@ function Task({text, priority, id, onDeleteTask, day, sublist_id, onUpdateTask, 
     setHover(false)
   }
 
-  // function findClicked(e) {
-  //   if(e.target.value === day) {
-  //     e.target.className = "day-picked"
-  //     // maybe use ID??
-  //   }
-  // }
   return (
     <div
-    onMouseEnter = {() => setHover(true)}
-    onMouseLeave = {() => setHover(false)}
-    id = {
-      priority
-      ? "priority-task-container"
-      : "task-container"
-    }
+      onMouseEnter = {() => setHover(true)}
+      onMouseLeave = {() => setHover(false)}
+      id = {
+        priority
+        ? "priority-task-container"
+        : "task-container"
+      }
     >
        {
         hidden
-      ? null
-      : <div id = "task-modal">
+        ? null
+        : 
+        <div id = "task-modal">
           <TaskForm
             hideModal = {hideModal}
             text = {text}
@@ -60,35 +55,30 @@ function Task({text, priority, id, onDeleteTask, day, sublist_id, onUpdateTask, 
             findSublistByDay = {findSublistByDay}
           />
         </div>
-    }
-      
+        }
+        
       <div id = "show-container">
         <input
           id = "checkbox"
           type = "checkbox"
           onChange = {handleDeleteTask}
         />
-        {/* <p type = "text" id = "task-text" value = {text}
-        >{text}</p> */}
-
         <p
           id = "task-text"
         >{text}</p>
-
-        {/* maybe add class = input */}
       </div>
-
       { hover
         ?
         <div id = "hover-container">
           <div
-          id = "edit-pencil"
+            id = "edit-pencil"
             onClick = {handleClick}
           >✏️</div>
         </div>
+
         : null
       }
-    </div>
+      </div>
   )
 }
 

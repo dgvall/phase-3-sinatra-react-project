@@ -12,15 +12,15 @@ function DaySublist({day, tasks, onDeleteTask, onUpdateTask, findSublistByDay}) 
         tasks.map((t) => {
           return (
             <Task
-            key = {t.id}
-            day = {day}
-            id = {t.id}
-            text = {t.text}
-            priority = {t.priority}
-            onDeleteTask = {onDeleteTask}
-            sublist_id = {t.sublist_id}
-            onUpdateTask = {onUpdateTask}
-            findSublistByDay = {findSublistByDay}
+              key = {t.id}
+              day = {day}
+              id = {t.id}
+              text = {t.text}
+              priority = {t.priority}
+              onDeleteTask = {onDeleteTask}
+              sublist_id = {t.sublist_id}
+              onUpdateTask = {onUpdateTask}
+              findSublistByDay = {findSublistByDay}
           />
           )
         })
@@ -28,7 +28,6 @@ function DaySublist({day, tasks, onDeleteTask, onUpdateTask, findSublistByDay}) 
       </div>
     </div>
   )
-
 }
 
 export default DaySublist;
