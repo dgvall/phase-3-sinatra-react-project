@@ -12,39 +12,37 @@ function ListsPage({lists, handleCreateList}) {
   }
   
   return (
-<div>
-    {hidden
-      ? null
-      : <div className = "lists-user-modal">
-        <UserForm
-          handleHidden = {hideModal}
-          handleCreateList = {handleCreateList}
-        />
-        </div>
-    }
-
-{/* <div className = "overlay">
-
-</div> */}
-
-      <h1 id = "title">To-Do Lists</h1>
-      <div id = "card-container">
+    <div>
+        {hidden
+          ? null
+          : 
+          <div className = "lists-user-modal">
+            <UserForm
+              handleHidden = {hideModal}
+              handleCreateList = {handleCreateList}
+            />
+          </div>
+        }
+        <h1 id = "title">To-Do Lists</h1>
+        <div id = "card-container">
         <div
-        id = "form-creation"
-        onClick = {() => setHidden(false)}
+          id = "form-creation"
+          onClick = {() => setHidden(false)}
         >
-          <p id = "plus" >+</p>
+        <p id = "plus" >+</p>
         </div>
           {
             lists.map(list => {
-              return <ListCard
-                key = {list.id}
-                id = {list.id}
-                name = {list.name}
-              />
+              return (
+                <ListCard
+                  key = {list.id}
+                  id = {list.id}
+                  name = {list.name}
+                />
+              )
             })
           }
-      </div>
+        </div>
     </div>
   )
 }
