@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 
 import './TaskForm.css'
 
-function TaskForm({hideModal, text, priority, day, id, sublist_id, hideHoverMenu, onUpdateTask, findSublistByDay}) {
+function TaskForm({hideModal, text, priority, day, id, hideHoverMenu, onUpdateTask, findSublistByDay}) {
   const [submitDay, setSubmitDay] = useState(day)
   const [submitText, setSubmitText] =  useState(text)
   const [submitPriority, setSubmitPriority] = useState(priority)
