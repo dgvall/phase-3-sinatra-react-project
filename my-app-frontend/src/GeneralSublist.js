@@ -18,7 +18,6 @@ function GeneralSublist({tasks, onDeleteTask, onUpdateTask, findSublistByDay}) {
               priority = {t.priority}
               onDeleteTask = {onDeleteTask}
               day = "General"
-              sublist_id = {t.sublist_id}
               onUpdateTask = {onUpdateTask}
               findSublistByDay = {findSublistByDay}
           />

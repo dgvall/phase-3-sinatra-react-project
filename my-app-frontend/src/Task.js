@@ -3,7 +3,7 @@ import TaskForm from './TaskForm'
 
 import "./Task.css"
 
-function Task({text, priority, id, onDeleteTask, day, sublist_id, onUpdateTask, findSublistByDay}) {
+function Task({text, priority, id, onDeleteTask, day, onUpdateTask, findSublistByDay}) {
 
   const [hover, setHover] = useState(false)
   const [hidden, setHidden] = useState(true)
@@ -49,7 +49,6 @@ function Task({text, priority, id, onDeleteTask, day, sublist_id, onUpdateTask, 
             priority = {priority}
             day = {day}
             id = {id}
-            sublist_id = {sublist_id}
             hideHoverMenu = {hideHoverMenu}
             onUpdateTask = {onUpdateTask}
             findSublistByDay = {findSublistByDay}

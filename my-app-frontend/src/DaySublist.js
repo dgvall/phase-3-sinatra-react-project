@@ -18,7 +18,6 @@ function DaySublist({day, tasks, onDeleteTask, onUpdateTask, findSublistByDay}) 
               text = {t.text}
               priority = {t.priority}
               onDeleteTask = {onDeleteTask}
-              sublist_id = {t.sublist_id}
               onUpdateTask = {onUpdateTask}
               findSublistByDay = {findSublistByDay}
           />
