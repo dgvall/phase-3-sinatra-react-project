@@ -7,7 +7,7 @@ import TaskForm from './TaskForm.js'
 import "./ListPage.css"
 
 function ListPage({lists, handleUpdateList}) {
-  const [quickTask, setQuickTask] = useState("")
+  const [task, setTask] = useState("")
   const [day, setDay] = useState("General")
   const [hidden, setHidden] = useState(true)
   const [priority, setPriority] = useState(false)
@@ -35,7 +35,7 @@ function ListPage({lists, handleUpdateList}) {
         const sublist = findSublistByDay(day)
       
         const formData = {
-          text: quickTask,
+          text: task,
           priority: priority,
           sublist_id: sublist.id
         }
@@ -51,7 +51,7 @@ function ListPage({lists, handleUpdateList}) {
         })
           .then(res => res.json())
           .then(data => {
-            setQuickTask("")
+            setTask("")
             setDay("General")
             setPriority(false)
             sublist.tasks = [...sublist.tasks, data]
@@ -87,8 +87,8 @@ function ListPage({lists, handleUpdateList}) {
               return t
             }
           sublist.tasks = [...sublist.tasks, updatedTaskObj]
+          return null
           })
-          
         }
 
       handleUpdateList(list)
@@ -140,8 +140,8 @@ function ListPage({lists, handleUpdateList}) {
             <label id = "form-label">Add Task</label>
             <input
               placeholder = "Task here"
-              onChange = {(e) => setQuickTask(e.target.value)}
-              value = {quickTask}
+              onChange = {(e) => setTask(e.target.value)}
+              value = {task}
             >
             </input>
             <div id = "submit-container">
@@ -171,7 +171,7 @@ function ListPage({lists, handleUpdateList}) {
                   findSublistByDay = {findSublistByDay}
                 />
               )
-            }
+            } else return null
           })
         }
         <div id = "days-container">
@@ -192,7 +192,7 @@ function ListPage({lists, handleUpdateList}) {
           }
         </div>
       </div>
-      
+
     : <div>Loading</div>
     }
     </div>
